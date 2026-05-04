@@ -34,7 +34,7 @@ a {
 }
 
 .wrap {
-  width: min(1120px, 100%);
+  width: min(980px, 100%);
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -75,8 +75,10 @@ a {
 
 .global-nav a {
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
   color: var(--muted);
+  text-transform: uppercase;
 }
 
 .global-nav a:hover {
@@ -173,6 +175,15 @@ h1 {
   padding: 62px 0;
 }
 
+.section-kicker {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #6f84a7;
+}
+
 .section h2 {
   margin: 0 0 18px;
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -191,6 +202,16 @@ h1 {
   background: linear-gradient(180deg, #f4f7fc, var(--bg-2));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+#about .wrap,
+#profile .wrap {
+  padding-top: 38px;
+  padding-bottom: 38px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #dfe6f2;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(42, 62, 96, 0.06);
 }
 
 .cards {
@@ -217,6 +238,14 @@ h1 {
   background: linear-gradient(90deg, #9db6db, #6b8ec2);
   display: block;
   margin: 0 auto 14px;
+}
+
+.card-index {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  color: #86a0c7;
+  font-weight: 800;
+  letter-spacing: 0.14em;
 }
 
 .card h3 {
@@ -277,6 +306,10 @@ h1 {
   padding: 28px;
   text-align: center;
   box-shadow: var(--soft-shadow);
+}
+
+.contact-card .section-kicker {
+  margin-bottom: 8px;
 }
 
 .contact-line {
