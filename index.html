@@ -21,10 +21,10 @@
       <div class="wrap header-inner">
         <p class="brand">株式会社イー・エル・エス</p>
         <nav class="global-nav" aria-label="グローバルナビゲーション">
-          <a href="#about">会社紹介</a>
-          <a href="#business">事業領域</a>
-          <a href="#profile">会社概要</a>
-          <a href="#contact">お問い合わせ</a>
+          <a class="nav-link" href="#about">会社紹介</a>
+          <a class="nav-link" href="#business">事業領域</a>
+          <a class="nav-link" href="#profile">会社概要</a>
+          <a class="nav-link" href="#contact">お問い合わせ</a>
         </nav>
       </div>
     </header>
@@ -128,5 +128,44 @@
         <p>© 株式会社イー・エル・エス All Rights Reserved.</p>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const links = Array.from(document.querySelectorAll(".nav-link"));
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        if (!links.length || !sections.length) return;
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            const active = link.getAttribute("href") === "#" + id;
+            link.classList.toggle("is-active", active);
+            if (active) {
+              link.setAttribute("aria-current", "page");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (visible) setActive(visible.target.id);
+          },
+          {
+            rootMargin: "-36% 0px -50% 0px",
+            threshold: [0.2, 0.45, 0.7],
+          }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        if (sections[0].id) setActive(sections[0].id);
+      })();
+    </script>
   </body>
 </html>

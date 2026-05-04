@@ -79,10 +79,18 @@ a {
   letter-spacing: 0.08em;
   color: var(--muted);
   text-transform: uppercase;
+  padding: 2px 1px;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
 .global-nav a:hover {
   color: var(--navy);
+}
+
+.global-nav a.is-active {
+  color: var(--navy);
+  border-bottom-color: #7f9fcf;
 }
 
 .hero {
